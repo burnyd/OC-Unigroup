@@ -1,0 +1,9 @@
+router bgp {{ leaf_as }}
+{% if inventory_hostname in ebgp_peers %}
+  {% for neighbor_ip in ebgp_peers[inventory_hostname] %}
+    {% for option in ebgp_peers[inventory_hostname][neighbor_ip] %}
+ neighbor {{ neighbor_ip }} {{ option }}
+    {% endfor %}
+  {% endfor %}
+{% endif %}
+redistribute connected
