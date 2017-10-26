@@ -1,5 +1,5 @@
 ---
-- hosts: spine1
+- hosts: spines
   connection: local
   gather_facts: no 
   vars_files:

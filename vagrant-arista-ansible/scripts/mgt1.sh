@@ -32,5 +32,27 @@ echo "updating apt-get"
 apt-get update -y 
 echo "installing everything necessary for DNS and Bind"
 apt-get install -y git ansible python-pip
+
 echo "Get the necessary libraries"
 pip install jsonrpclib
+
+echo "Getting the necessary Arista Networks Openconfig tools"
+git clone github.com/aristanetworks/goarista.git /opt/
+echo "Installing go and setting env variables for Go"
+wget https://storage.googleapis.com/golang/go1.9.1.linux-amd64.tar.gz -P /opt/
+
+sleep 3
+
+su vagrant
+
+sudo tar -C /usr/local -xzf /opt/go1.9.1.linux-amd64.tar.gz 
+
+echo "Adding linux env varbiables through another process"
+cd /vagrant/scripts
+. ./env.sh
+
+
+echo "Installing OC tools"
+go get github.com/aristanetworks/goarista/cmd/gnmi
+
+

@@ -12,7 +12,7 @@ ebgp_peers:
   leaf1a:
     10.0.11.3:
       - remote-as 10
-    10.0.12.2:
+    10.0.12.3:
       - remote-as 10 
   leaf1b:
     10.0.21.3:
@@ -39,4 +39,13 @@ spine_peers:
     10.0.211.2:
       - remote-as 1
     10.0.221.2:
-      - remote-as 1      
+      - remote-as 1   
+  spine2: 
+    10.0.12.2:
+      - remote-as 1
+    10.0.22.2:
+      - remote-as 1
+    10.0.212.2:
+      - remote-as 1
+    10.0.222.2:
+      - remote-as 1   

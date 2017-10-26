@@ -49,4 +49,10 @@ management api http-commands
    protocol http
    no shutdown
 !
+management api gnmi
+transport grpc default
+port 6030
+no ssl profile
+no shutdown
+!
 exit"
