@@ -1,0 +1,5 @@
+{  
+   "openconfig-network-instance:name":"VLAN0009",
+   "openconfig-network-instance:status":"ACTIVE",
+   "openconfig-network-instance:vlan-id":9
+}

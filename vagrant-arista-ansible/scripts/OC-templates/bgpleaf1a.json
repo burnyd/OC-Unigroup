@@ -1,0 +1,29 @@
+{
+    "openconfig-network-instance:global": {
+        "confederation": {
+            "config": {
+                "identifier": 0
+            }
+        },
+        "config": {
+            "as": 6599,
+            "router-id": "0.0.0.0"
+        },
+        "default-route-distance": {
+            "config": {
+                "external-route-distance": 200,
+                "internal-route-distance": 200
+            }
+        },
+        "graceful-restart": {
+            "config": {
+                "restart-time": 0
+            }
+        },
+        "route-selection-options": {
+            "config": {
+            }
+        }
+    }
+}
+

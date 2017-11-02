@@ -7,6 +7,7 @@
 # you're doing.
 Vagrant.configure(2) do |config|
 config.vm.box = "vEOS-20-eft-2"
+#config.vm.box = "vEOS-20-A1"
 config.ssh.insert_key = false
 #vb.memory = '2048'
 
@@ -17,6 +18,7 @@ config.ssh.insert_key = false
     leaf1a.vm.network "private_network",  virtualbox__intnet: 'leaf1a-spine2-', auto_config: false
     leaf1a.vm.network "private_network",  virtualbox__intnet: 'leaf1a-leaf1b-', auto_config: false
     leaf1a.vm.network "private_network",  virtualbox__intnet: 'leaf1a-host1', auto_config: false
+    leaf1a.vm.box = "vEOS-20-A1"
 
   leaf1a.vm.provider "virtualbox" do |v|
       v.customize ["modifyvm", :id, "--nicpromisc2", "allow-vms"]
@@ -36,6 +38,7 @@ config.ssh.insert_key = false
     leaf1b.vm.network "private_network",  virtualbox__intnet: 'leaf1b-spine2-', auto_config: false
     leaf1b.vm.network "private_network",  virtualbox__intnet: 'leaf1a-leaf1b-', auto_config: false
     leaf1b.vm.network "private_network",  virtualbox__intnet: 'leaf1b-host1', auto_config: false
+    leaf1b.vm.box = "vEOS-20-A1"
 
   leaf1b.vm.provider "virtualbox" do |v|
       v.customize ["modifyvm", :id, "--nicpromisc2", "allow-vms"]

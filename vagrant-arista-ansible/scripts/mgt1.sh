@@ -31,7 +31,7 @@ apt-add-repository ppa:ansible/ansible -y
 echo "updating apt-get"
 apt-get update -y 
 echo "installing everything necessary for DNS and Bind"
-apt-get install -y git ansible python-pip
+apt-get install -y git ansible python-pip python-dev -y 
 
 echo "Get the necessary libraries"
 pip install jsonrpclib
@@ -54,5 +54,12 @@ cd /vagrant/scripts
 
 echo "Installing OC tools"
 go get github.com/aristanetworks/goarista/cmd/gnmi
+
+pip install pyangbind
+
+git clone https://github.com/robshakir/pyangbind /tmp/pyangbind/
+
+git clone https://github.com/openconfig/public/ /tmp/public/
+
 
 

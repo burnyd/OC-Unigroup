@@ -1,5 +1,5 @@
 ---
-- hosts: leafs
+- hosts: leaf1a
   connection: local
   gather_facts: no 
   vars_files:
@@ -10,4 +10,3 @@
     eos_config:
       src: templates/bgp_leaf.j2
       provider: "{{ eos_connection }}"
- 
