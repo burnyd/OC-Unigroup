@@ -33,6 +33,11 @@ description connection-to-leaf2b
 no switchport
 ip address 10.0.222.3/24
 !
+interface Ethernet6
+description connection-to-gobgp
+no switchport
+ip address 10.0.251.3/24
+!
 int lo0 
 ip address 4.4.4.4/32
 !
