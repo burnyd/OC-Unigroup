@@ -1,8 +1,13 @@
 #!/usr/bin/env bash
 
+
 sleep 5
 
 sudo su
+
+sudo useradd -m kafka
+
+sudo adduser kafka sudo
 
 #Check for ping connectivity to google before proceeding.
 
@@ -31,7 +36,7 @@ apt-add-repository ppa:ansible/ansible -y
 echo "updating apt-get"
 apt-get update -y 
 echo "installing everything necessary for DNS and Bind"
-apt-get install -y git ansible python-pip python-dev -y 
+apt-get install -y git ansible python-pip python-dev default-jre -y 
 
 echo "Get the necessary libraries"
 pip install jsonrpclib
@@ -63,3 +68,15 @@ git clone https://github.com/openconfig/public/ /tmp/public/
 
 
 
+mkdir -p /home/vagrant/kafka
+cd /home/vagrant/
+
+sudo apt-get install zookeeperd -y
+
+wget http://www-us.apache.org/dist/kafka/0.10.2.0/kafka_2.10-0.10.2.0.tgz
+
+sudo tar -xf kafka_2.10-0.10.2.0.tgz -C /home/vagrant/kafka/ --strip-components 1
+sleep 5
+
+echo "Running kafka and zookeeper in the background"
+/home/vagrant/kafka/bin/kafka-server-start.sh /home/vagrant/kafka/config/server.properties > /dev/null 2>&1 &

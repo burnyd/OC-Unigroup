@@ -11,6 +11,10 @@ echo Finished..
 echo Adding Arista openconfigbeat...
 go get github.com/aristanetworks/openconfigbeat
 echo Finished
-echo Addind Openconfig gnmi client..
+echo Adding Openconfig gnmi client..
 go get github.com/aristanetworks/goarista/cmd/gnmi
+go get github.com/aristanetworks/goarista/cmd/ockafka 
 echo Finished
+echo Adding pyangbind env
+export PYBINDPLUGIN=`/usr/bin/env python -c \
+	'import pyangbind; import os; print "%s/plugin" % os.path.dirname(pyangbind.__file__)'`

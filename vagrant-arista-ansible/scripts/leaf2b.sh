@@ -9,6 +9,13 @@ username api secret password
 !
 username vagrant secret vagrant
 !
+event-handler Terminattr
+   trigger on-boot
+   action bash /usr/bin/TerminAttr -grpcaddr 0.0.0.0:6042 -allowed_ips 0.0.0.0/0 -disableaaa
+!
+ip name-server vrf default 8.8.8.8
+ip domain-list 8.8.8.8
+!
 vlan 6
 !
 interface vlan 6
@@ -42,6 +49,8 @@ switchport access vlan 6
 !
 int loopback0
 ip address 6.6.6.6/32
+!
+ip route 0.0.0.0/0 10.0.2.2
 !
 management api http-commands
    protocol http
